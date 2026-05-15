@@ -1,15 +1,15 @@
-package service
+package mqtt
 
 import (
-	"go-projects/envi-monitor/internal/service/sensor"
+	"go-projects/envi-monitor/internal/adapter/inbound/mqtt/sensor"
 
 	"go.uber.org/dig"
 )
 
-type Service struct {
+type Inbound struct {
 	dig.In
 
-	Sensor sensor.SensorService
+	Sensor *sensor.Subscriber
 }
 
 func Register(container *dig.Container) error {

@@ -1,4 +1,4 @@
-package user
+package sensor
 
 import (
 	"go-projects/envi-monitor/internal/service"

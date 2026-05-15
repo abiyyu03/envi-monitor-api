@@ -28,7 +28,7 @@ func InitMQTT(cfg config.MQTTConfig) (mqtt.Client, error) {
 
 	client := mqtt.NewClient(mqttOpts)
 	if token := client.Connect(); token.Wait() && token.Error() != nil {
-		log.Fatalf("Failed to connect to MQTT broker: %v", token.Error())
+		return nil, token.Error()
 	}
 	return client, nil
 }

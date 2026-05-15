@@ -1,6 +1,7 @@
-package rest
+package inbound
 
 import (
+	"go-projects/envi-monitor/internal/adapter/inbound/mqtt"
 	"go-projects/envi-monitor/internal/adapter/inbound/rest"
 
 	"go.uber.org/dig"
@@ -9,5 +10,10 @@ import (
 type Inbound struct {
 	dig.In
 
-	Inbound rest.Inbound
+	Rest rest.Inbound
+	Mqtt mqtt.Inbound
+}
+
+func Register(container *dig.Container) error {
+	return mqtt.Register(container)
 }

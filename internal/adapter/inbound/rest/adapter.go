@@ -1,7 +1,7 @@
 package rest
 
 import (
-	"go-projects/envi-monitor/internal/adapter/inbound/rest/user"
+	"go-projects/envi-monitor/internal/adapter/inbound/rest/sensor"
 
 	"go.uber.org/dig"
 )
@@ -9,5 +9,5 @@ import (
 type Inbound struct {
 	dig.In
 
-	User user.Handler
+	Sensor sensor.Handler
 }

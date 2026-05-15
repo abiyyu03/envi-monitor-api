@@ -1,13 +1,13 @@
-package user
+package sensor
 
 import (
 	"go-projects/envi-monitor/internal/adapter/outbound"
 	"go-projects/envi-monitor/pkg"
 )
 
-type UserService interface {
-	ICreateUser
-	IGetAll
+type SensorService interface {
+	IGetSensorData
+	IStoreSensorData
 }
 
 type service struct {
@@ -19,7 +19,7 @@ type service struct {
 func New(
 	outbound outbound.Outbound,
 	pkg pkg.Package,
-) UserService {
+) SensorService {
 	return &service{
 		Outbound:   outbound,
 		cache:      pkg.Cache,
