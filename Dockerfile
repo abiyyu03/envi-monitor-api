@@ -15,6 +15,8 @@ WORKDIR /app
 COPY --from=builder /app/envi-monitor .
 COPY --from=builder /app/.env .
 
+RUN apk add --no-cache tzdata
+
 EXPOSE 8080
 
 CMD ["./envi-monitor"]
