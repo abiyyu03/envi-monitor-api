@@ -1,6 +1,7 @@
 package pkg
 
 import (
+	"fmt"
 	"go-projects/envi-monitor/config"
 	"log"
 	"time"
@@ -14,8 +15,9 @@ type MQTT struct {
 }
 
 func InitMQTT(cfg config.MQTTConfig) (mqtt.Client, error) {
+	host := fmt.Sprintf("%s:%s", cfg.Host, cfg.Port)
 	mqttOpts := mqtt.NewClientOptions().
-		AddBroker(cfg.Host).
+		AddBroker(host).
 		SetClientID(cfg.ClientID).
 		SetUsername(cfg.Username).
 		SetPassword(cfg.Password).
