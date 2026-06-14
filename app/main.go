@@ -10,7 +10,9 @@ import (
 )
 
 func main() {
-	var app = fiber.New()
+	var app = fiber.New(fiber.Config{
+		ErrorHandler: errorHandler,
+	})
 
 	container, err := di.Container()
 	if err != nil {

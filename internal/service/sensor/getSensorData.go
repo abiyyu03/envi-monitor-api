@@ -15,9 +15,10 @@ func (s service) GetSensorData(ctx context.Context, req sensorEntity.GetSensorDa
 	}
 
 	response = sensorEntity.GetSensorDataResponse{
-		Temperature: sensorData.Temperature,
-		Humidity:    sensorData.Humidity,
-		UpdatedAt:   sensorData.UpdatedAt,
+		Temperature:   sensorData.Temperature,
+		Humidity:      sensorData.Humidity,
+		AirQualityPPM: sensorData.AirQualityPPM,
+		UpdatedAt:     sensorData.UpdatedAt,
 	}
 
 	return response, nil

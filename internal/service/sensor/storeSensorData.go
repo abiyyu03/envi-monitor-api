@@ -10,9 +10,10 @@ import (
 
 func (s service) StoreSensorData(ctx context.Context, req sensorEntity.StoreSensorDataRequest) error {
 	err := s.Outbound.Cache.Sensor.SetSensorData(ctx, outboundEntity.Sensor{
-		Temperature: req.Temperature,
-		Humidity:    req.Humidity,
-		UpdatedAt:   time.Now(),
+		Temperature:   req.Temperature,
+		Humidity:      req.Humidity,
+		AirQualityPPM: req.AirQualityPPM,
+		UpdatedAt:     time.Now(),
 	})
 	if err != nil {
 		return err
